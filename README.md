@@ -18,7 +18,7 @@ The whole program will be fully C# with no external files. (Or a few)
 * This will most likely take the false positive away.
 
 Hopefully I will find the time to update SpotifyPatcher as Spotify continues to fight back the nonpaid adfree experience. 
-* This might require your support too. If you have a thing you'd like to be added or fixed tell me, or even do a pull request!
+* This might require your support too. If you have a thing you'd like to be added or fixed tell me, or even pull request!
 
 # Uninstallation
 
