@@ -4,6 +4,8 @@
 
 ### SpotifyPatcher bypasses Spotify's ads and auto-update on Windows.
 
+## Status: Working!
+
 # About
 
 SpotifyPatcher is a program made by Takaovi (Me). The program was not meant to be published, so expect some buggy code. 
