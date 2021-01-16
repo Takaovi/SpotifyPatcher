@@ -3,9 +3,9 @@
 </p>
 
 ### SpotifyPatcher bypasses Spotify's ads and auto-update on Windows.
-Version | Status | Status update date | Contributors | 
------------- | ------------- | ------------- | -------------
-V1.0 | Working | 16.1.2021 | 0
+Version | Status | Status update date | Contributors | Project at risk | Motivation to continue project
+------------ | ------------- | ------------- | ------------- | ------------- | -------------
+V1.0 | Working | 16.1.2021 | 0 | No | Yes
 
 # About
 
