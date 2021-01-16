@@ -1,3 +1,4 @@
+<p align="center">
 # SpotifyPatcher
 <p align="center">
   <img src="https://i.imgur.com/gYdMVuO.png">
@@ -39,3 +40,4 @@ Under Section 107 of the Copyright Act 1976, allowance is made for "fair use" fo
 We take claims of copyright infringement seriously. We will respond to notices of alleged copyright infringement that comply with applicable law. If you believe any materials accessible on or from this repository infringe your copyright, you may request removal of those materials (or access to them) from the repository by submitting a DMCA takedown notice to [Github](https://github.com/contact/dmca). We kindly ask you to be in touch with the repository's owner before submitting any DMCA takedown notices.
 
 If you don't agree with any of our disclaimers above please do not read the code on our repository as you have no permission to read and explore our repository till you agree.
+</p>
