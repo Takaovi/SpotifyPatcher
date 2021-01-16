@@ -1,6 +1,6 @@
 # SpotifyPatcher
 <p align="center">
-  <img width="460" height="300" src="https://i.imgur.com/gYdMVuO.png">
+  <img src="https://i.imgur.com/gYdMVuO.png">
 </p>
 ### SpotifyPatcher bypasses Spotify's ads and auto-update on Windows.
 # About
@@ -25,7 +25,7 @@ Simply click the "Uninstall Spotify" button, remove the program (SpotifyPatcher)
 # Screenshots
 
 <p align="center">
-  <img width="460" height="300" src="https://i.imgur.com/myVETxO.jpg">
+  <img src="https://i.imgur.com/myVETxO.jpg">
 </p>
 
 # Legal
