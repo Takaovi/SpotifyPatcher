@@ -3,6 +3,7 @@
   <img src="https://i.imgur.com/gYdMVuO.png">
 </p>
 ### SpotifyPatcher bypasses Spotify's ads and auto-update on Windows.
+
 # About
 
 SpotifyPatcher is a program made by Takaovi. The program was not meant to be published, so expect some buggy code. 
