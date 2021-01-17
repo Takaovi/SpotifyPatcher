@@ -5,7 +5,7 @@
 ### SpotifyPatcher bypasses Spotify's ads and auto-update on Windows.
 Version | Status | Status update date | Contributors | Project at risk | Motivation to continue project
 ------------ | ------------- | ------------- | ------------- | ------------- | -------------
-V1.0 | Working. Ads come back after reboot. (The first button) | 17.1.2021 | 0 | No | Yes
+V1.0 | Working. Ads come back after reboot.| 17.1.2021 | 0 | No | Yes
 
 # About
 
