@@ -42,6 +42,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.GithubButton = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.SecondWorker = new System.ComponentModel.BackgroundWorker();
             this.DragBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -55,7 +56,7 @@
             this.PatchUpdateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PatchUpdateButton.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PatchUpdateButton.ForeColor = System.Drawing.Color.White;
-            this.PatchUpdateButton.Location = new System.Drawing.Point(20, 196);
+            this.PatchUpdateButton.Location = new System.Drawing.Point(20, 237);
             this.PatchUpdateButton.Name = "PatchUpdateButton";
             this.PatchUpdateButton.Size = new System.Drawing.Size(260, 35);
             this.PatchUpdateButton.TabIndex = 0;
@@ -89,7 +90,7 @@
             this.PatchAdsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PatchAdsButton.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PatchAdsButton.ForeColor = System.Drawing.Color.White;
-            this.PatchAdsButton.Location = new System.Drawing.Point(20, 237);
+            this.PatchAdsButton.Location = new System.Drawing.Point(20, 196);
             this.PatchAdsButton.Name = "PatchAdsButton";
             this.PatchAdsButton.Size = new System.Drawing.Size(260, 35);
             this.PatchAdsButton.TabIndex = 2;
@@ -184,7 +185,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(129)))), ((int)(((byte)(246)))));
-            this.panel2.Location = new System.Drawing.Point(25, 284);
+            this.panel2.Location = new System.Drawing.Point(25, 283);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(250, 2);
             this.panel2.TabIndex = 7;
@@ -198,7 +199,7 @@
             this.GithubButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.GithubButton.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GithubButton.ForeColor = System.Drawing.Color.White;
-            this.GithubButton.Location = new System.Drawing.Point(20, 298);
+            this.GithubButton.Location = new System.Drawing.Point(20, 296);
             this.GithubButton.Name = "GithubButton";
             this.GithubButton.Size = new System.Drawing.Size(260, 27);
             this.GithubButton.TabIndex = 8;
@@ -214,12 +215,16 @@
             this.panel3.Size = new System.Drawing.Size(250, 2);
             this.panel3.TabIndex = 8;
             // 
+            // SecondWorker
+            // 
+            this.SecondWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.SecondWorker_DoWork);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
-            this.ClientSize = new System.Drawing.Size(300, 336);
+            this.ClientSize = new System.Drawing.Size(300, 335);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.GithubButton);
             this.Controls.Add(this.DragBar);
@@ -233,7 +238,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Main";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Form1";
             this.TopMost = true;
             this.DragBar.ResumeLayout(false);
@@ -258,6 +263,7 @@
         private System.Windows.Forms.Button GithubButton;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label CloseButton;
+        private System.ComponentModel.BackgroundWorker SecondWorker;
     }
 }
 

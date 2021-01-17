@@ -2,8 +2,8 @@
 using System.ComponentModel;
 using System.Windows.Forms;
 using System.Diagnostics;
-using Microsoft.Win32;
 using System.Runtime.InteropServices;
+using System.Drawing;
 
 namespace SpotifyPatcher
 {
@@ -12,10 +12,21 @@ namespace SpotifyPatcher
         public Main()
         {
             InitializeComponent();
+            foreach (var scrn in Screen.AllScreens)
+            {
+                if (scrn.Bounds.Contains(this.Location))
+                {
+                    this.Location = new Point(scrn.Bounds.Right - this.Width, scrn.Bounds.Top);
+                    return;
+                }
+            }
+            /*
 
-            //SPOTIFYPATCHER
-            //AUTHOR - TAKAOVI
-            //GITHUB - https://github.com/Takaovi/SpotifyPatcher
+            SPOTIFYPATCHER
+            AUTHOR - TAKAOVI
+            GITHUB - https://github.com/Takaovi/SpotifyPatcher
+
+            */
         }
 
         //Movable form
@@ -26,118 +37,6 @@ namespace SpotifyPatcher
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
         [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
-
-        //1
-        private void InstallSpotify(bool i)
-        {
-
-            Process.Start(AppDomain.CurrentDomain.BaseDirectory + @"\Resources\Exe\Spotify.exe");
-
-            if (i) { Worker.RunWorkerAsync(); }
-        }
-
-        //2
-        private void PatchAds(bool i, bool c)
-        {
-            //If user pressed patch all button
-            if (i)
-            {
-
-                var p = Process.Start(AppDomain.CurrentDomain.BaseDirectory + @"\Resources\Batch\NoAds.bat");
-                p.EnableRaisingEvents = true;
-                p.Exited += new EventHandler(p_Exited);
-                //p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-
-                if (c)
-                {
-                    Worker.CancelAsync();
-                    p.Start();
-                }
-
-            }
-            //If user pressed Disable ads button only
-            else if (!i)
-            {
-                var p = Process.Start(AppDomain.CurrentDomain.BaseDirectory + @"\Resources\Batch\NoAds.bat");
-                p.EnableRaisingEvents = true;
-                p.Exited += new EventHandler(p_Exited);
-                //p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-                p.Start();
-            }
-            //Batch file exited
-            void p_Exited(object sender, EventArgs e)
-            {
-                if (i)
-                {
-                    PatchUpdate(true);
-                }
-                if (!i)
-                {
-                    if (!System.IO.Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Spotify"))
-                    {
-                        MessageBox.Show("Please make sure Spotify has been installed successfully", "Patch possibly failed", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, (MessageBoxOptions)0x40000);
-                    }
-                    else
-                    {
-                        MessageBox.Show("If the patch is not working, please create a bug report to the Github page", "Patched successfully", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, (MessageBoxOptions)0x40000);
-                    }
-                }
-            }
-        }
-
-        //3
-        private void PatchUpdate(bool i)
-        {
-            var p = Process.Start(AppDomain.CurrentDomain.BaseDirectory + @"\Resources\Batch\NoUpdates.bat");
-            p.EnableRaisingEvents = true;
-            p.Exited += new EventHandler(p_Exited);
-            //p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            p.Start();
-
-            //Batch file exited
-            void p_Exited(object sender, EventArgs e)
-            {
-                if (i)
-                {
-                    if (System.IO.Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Spotify"))
-                    {
-                        MessageBox.Show("To make sure it works, reboot your pc and check if you get ads. \n\nVisit my Github @Takaovi if you want to contribute or report bugs", "Spotify Patch Success", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, (MessageBoxOptions)0x40000);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Spotify got removed during installation. The cause is unknown.", "Patch unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, (MessageBoxOptions)0x40000);
-                    }
-                }
-                if (!System.IO.Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Spotify"))
-                {
-                    MessageBox.Show("Please make sure Spotify has been installed successfully", "Patch possibly failed", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, (MessageBoxOptions)0x40000);
-                }
-                else if (!i)
-                {
-                    MessageBox.Show("If the patch is not working, please create a bug report to the Github page.", "Patched successfully", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, (MessageBoxOptions)0x40000);
-                }
-            }
-        }
-
-        //Part of 1 and 2
-        private void Worker_DoWork(object sender, DoWorkEventArgs e)
-        {
-            bool c = true;
-
-            if (this.Worker.CancellationPending)
-            {
-                c = false;
-                e.Cancel = true;
-                return;
-            }
-
-            while (c)
-                if (Process.GetProcessesByName("Spotify").Length > 3)
-                {
-                    c = false;
-                    PatchAds(true, true);
-                }
-        }
 
         //Panel moves form
         private void DragBar_MouseDown(object sender, MouseEventArgs e)
@@ -156,6 +55,145 @@ namespace SpotifyPatcher
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
+        }
+
+        //1
+        private void InstallSpotify(bool i)
+        {
+            Process.Start(AppDomain.CurrentDomain.BaseDirectory + @"\Resources\Exe\Spotify.exe");
+
+            if (i) Worker.RunWorkerAsync();
+        }
+
+        //2
+        private void PatchAds(bool i, bool c)
+        {
+            if (System.IO.Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Spotify"))
+            {
+                //If user pressed patch all button
+                if (i)
+                {
+                    var p = Process.Start(AppDomain.CurrentDomain.BaseDirectory + @"\Resources\Batch\NoAds.bat");
+                    p.EnableRaisingEvents = true;
+                    p.Exited += new EventHandler(p_Exited);
+                    //p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+
+                    if (c)
+                    {
+                        Worker.CancelAsync();
+                        p.Start();
+                    }
+
+                }
+                //If user pressed Disable ads button only
+                else if (!i)
+                {
+                    var p = Process.Start(AppDomain.CurrentDomain.BaseDirectory + @"\Resources\Batch\NoAds.bat");
+                    p.EnableRaisingEvents = true;
+                    p.Exited += new EventHandler(p_Exited);
+                    //p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                    p.Start();
+                }
+                //Batch file exited
+                void p_Exited(object sender, EventArgs e)
+                {
+                    if (i)
+                    {
+                        PatchUpdate(true);
+                    }
+                    if (!i)
+                    {
+                        MessageBox.Show("If the patch is not working, please create a bug report to the Github page", "Patched successfully", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, (MessageBoxOptions)0x40000);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please make sure Spotify has been installed successfully", "Patch possibly failed", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, (MessageBoxOptions)0x40000);
+            }
+        }
+
+        //3
+        private void PatchUpdate(bool i)
+        {
+            if (System.IO.Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Spotify"))
+            {
+                SecondWorker.RunWorkerAsync();
+
+                var proc = Process.Start(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Spotify\Spotify.exe");
+                proc.EnableRaisingEvents = true;
+                proc.Exited += new EventHandler(proc_Exited);
+                //p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                proc.Start();
+
+                void proc_Exited(object sndr, EventArgs x)
+                {
+                    Worker.CancelAsync();
+                    var p = Process.Start(AppDomain.CurrentDomain.BaseDirectory + @"\Resources\Batch\NoUpdates.bat");
+                    p.EnableRaisingEvents = true;
+                    p.Exited += new EventHandler(p_Exited);
+                    p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                    p.Start();
+
+                    //Batch file exited
+                    void p_Exited(object sender, EventArgs e)
+                    {
+                        //If user wanted to patch all
+                        if (i)
+                        {
+                            MessageBox.Show("To make sure it works, reboot your pc and check if you get ads. \n\nVisit my Github @Takaovi if you want to contribute or report bugs", "Spotify Patch Success", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, (MessageBoxOptions)0x40000);
+                        }
+                        //If user simply used the patch update button
+                        else if (!i)
+                        {
+                            MessageBox.Show("If the patch is not working, please create a bug report to the Github page.", "Patched successfully", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, (MessageBoxOptions)0x40000);
+                        }
+                    }
+                }
+            }
+            else MessageBox.Show("Spotify is not installed", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1, (MessageBoxOptions)0x40000);
+        }
+
+        //Part of 1 and 2
+        private void Worker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            bool c = true;
+
+            if (this.Worker.CancellationPending)
+            {
+                e.Cancel = true;
+                return;
+            }
+
+            while (c)
+                if (Process.GetProcessesByName("Spotify").Length > 3)
+                {
+                    c = false;
+                    PatchAds(true, true);
+                }
+        }
+
+        private void SecondWorker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            bool c = true;
+
+            if (this.Worker.CancellationPending)
+            {
+                e.Cancel = true;
+                return;
+            }
+
+            while (c)
+                if (Process.GetProcessesByName("Spotify").Length > 3)
+                {
+                    c = false;
+                    Process.Start(AppDomain.CurrentDomain.BaseDirectory + @"\Resources\Batch\Regedit.bat");
+                    foreach (Process p in Process.GetProcessesByName("Spotify"))
+                    {
+                        //This currently kills every process other than SpotifyWebHelper.exe
+                        p.Kill();
+                    }
+                }
         }
 
         //1' Button
@@ -211,6 +249,10 @@ namespace SpotifyPatcher
             if (this.Worker.IsBusy)
             {
                 Worker.CancelAsync();
+            }
+            if (this.SecondWorker.IsBusy)
+            {
+                SecondWorker.CancelAsync();
             }
             Application.Exit();
         }
