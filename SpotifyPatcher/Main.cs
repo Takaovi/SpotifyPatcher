@@ -10,6 +10,13 @@ namespace SpotifyPatcher
 {
     public partial class Main : Form
     {
+        ///////////////////////////////////////////////////////
+        /*
+            SPOTIFYPATCHER
+            AUTHOR - TAKAOVI
+            GITHUB - https://github.com/Takaovi/SpotifyPatcher
+        */
+        ///////////////////////////////////////////////////////
         public Main()
         {
             InitializeComponent();
@@ -28,13 +35,6 @@ namespace SpotifyPatcher
                     return;
                 }
             }
-            /*
-
-            SPOTIFYPATCHER
-            AUTHOR - TAKAOVI
-            GITHUB - https://github.com/Takaovi/SpotifyPatcher
-
-            */
         }
 
         //Movable form
