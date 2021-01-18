@@ -31,7 +31,7 @@ Hopefully I will find the time to update SpotifyPatcher as Spotify continues to 
 
 2. Remove the program itself (Whole folder)
 
-3. CTRL + R, write regedit. Go to this address: HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run and remove "SpotifyStopUpdate".
+3. Go to Regedit HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run and remove "SpotifyStopUpdate".
 
 # Screenshots
 
