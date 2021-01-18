@@ -13,6 +13,8 @@ SpotifyPatcher is a program made by Takaovi (Me). The program was not meant to b
 
 The program (SpotifyPatcher) uses one batch file from [BlockTheSpot](https://github.com/master131/BlockTheSpot) (Huge shoutout to them!) to bypass ads. It uses another batch file to bypass and patch auto-update. The rest of the program is done in C# and it basically stitches everything together. If your anti-virus detects the program as a virus you have nothing to worry about, it's just a false positive.
 
+# Important
+
 ⚠️ Please note that the program automatically adds a simple batch file that starts at startup. The batch file is *currently* needed to stop Spotify from updating. You will notice CMD pop up after logging in, this is expected and nothing to worry about. Click [here](https://github.com/Takaovi/SpotifyPatcher/blob/master/SpotifyPatcher/Resources/Batch/Regedit.bat) to view the batch file that is run at startup.
 
 ⚠️ This program is for the [Desktop release](https://www.spotify.com/download/windows/) of Spotify on Windows and not the Microsoft Store version.
