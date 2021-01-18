@@ -31,7 +31,3 @@ type NUL > %appdata%\Spotify\SpotifyMigrator.txt
 ren %appdata%\Spotify\*.txt *.exe
 attrib -A +R  %appdata%\Spotify\SpotifyMigrator.exe
 del %appdata%\Spotify\SpotifyMigrator.txt
-
-
-
-
