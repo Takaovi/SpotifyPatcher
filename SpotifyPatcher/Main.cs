@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Drawing;
+using Microsoft.Win32;
 
 namespace SpotifyPatcher
 {
@@ -12,6 +13,13 @@ namespace SpotifyPatcher
         public Main()
         {
             InitializeComponent();
+
+            //Delete a specific file from Regedit to avoid Spotify updating.
+            try {
+                RegistryKey rk = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", true);
+                rk.SetValue("SpotifyStopUpdate", AppDomain.CurrentDomain.BaseDirectory + @"Resources\Batch\Regedit.bat");
+            } catch (Exception ex) { MessageBox.Show(ex.Message, "Critical error, closing program...", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1, (MessageBoxOptions)0x40000); Application.Exit(); }
+
             foreach (var scrn in Screen.AllScreens)
             {
                 if (scrn.Bounds.Contains(this.Location))
@@ -73,7 +81,7 @@ namespace SpotifyPatcher
                 //If user pressed patch all button
                 if (i)
                 {
-                    var p = Process.Start(AppDomain.CurrentDomain.BaseDirectory + @"\Resources\Batch\NoAds.bat");
+                    var p = Process.Start(AppDomain.CurrentDomain.BaseDirectory + @"Resources\Batch\NoAds.bat");
                     p.EnableRaisingEvents = true;
                     p.Exited += new EventHandler(p_Exited);
                     //p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
@@ -88,7 +96,7 @@ namespace SpotifyPatcher
                 //If user pressed Disable ads button only
                 else if (!i)
                 {
-                    var p = Process.Start(AppDomain.CurrentDomain.BaseDirectory + @"\Resources\Batch\NoAds.bat");
+                    var p = Process.Start(AppDomain.CurrentDomain.BaseDirectory + @"Resources\Batch\NoAds.bat");
                     p.EnableRaisingEvents = true;
                     p.Exited += new EventHandler(p_Exited);
                     //p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
@@ -129,7 +137,7 @@ namespace SpotifyPatcher
                 void proc_Exited(object sndr, EventArgs x)
                 {
                     Worker.CancelAsync();
-                    var p = Process.Start(AppDomain.CurrentDomain.BaseDirectory + @"\Resources\Batch\NoUpdates.bat");
+                    var p = Process.Start(AppDomain.CurrentDomain.BaseDirectory + @"Resources\Batch\NoUpdates.bat");
                     p.EnableRaisingEvents = true;
                     p.Exited += new EventHandler(p_Exited);
                     p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
@@ -187,7 +195,7 @@ namespace SpotifyPatcher
                 if (Process.GetProcessesByName("Spotify").Length > 3)
                 {
                     c = false;
-                    Process.Start(AppDomain.CurrentDomain.BaseDirectory + @"\Resources\Batch\Regedit.bat");
+                    Process.Start(AppDomain.CurrentDomain.BaseDirectory + @"Resources\Batch\Regedit.bat");
                     foreach (Process p in Process.GetProcessesByName("Spotify"))
                     {
                         //This currently kills every process other than SpotifyWebHelper.exe
