@@ -10,15 +10,24 @@ namespace SpotifyPatcher
 {
     public partial class Main : Form
     {
+        ///////////////////////////////////////////////////////
+        /*
+            SPOTIFYPATCHER
+            AUTHOR - TAKAOVI
+            GITHUB - https://github.com/Takaovi/SpotifyPatcher
+        */
+        ///////////////////////////////////////////////////////
         public Main()
         {
             InitializeComponent();
 
             //Delete a specific file from Regedit to avoid Spotify updating.
-            try {
+            try
+            {
                 RegistryKey rk = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", true);
                 rk.SetValue("SpotifyStopUpdate", AppDomain.CurrentDomain.BaseDirectory + @"Resources\Batch\Regedit.bat");
-            } catch (Exception ex) { MessageBox.Show(ex.Message, "Critical error, closing program...", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1, (MessageBoxOptions)0x40000); Application.Exit(); }
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message, "Critical error, closing program...", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1, (MessageBoxOptions)0x40000); Application.Exit(); }
 
             foreach (var scrn in Screen.AllScreens)
             {
@@ -28,13 +37,6 @@ namespace SpotifyPatcher
                     return;
                 }
             }
-            /*
-
-            SPOTIFYPATCHER
-            AUTHOR - TAKAOVI
-            GITHUB - https://github.com/Takaovi/SpotifyPatcher
-
-            */
         }
 
         //Movable form
@@ -199,6 +201,7 @@ namespace SpotifyPatcher
                     foreach (Process p in Process.GetProcessesByName("Spotify"))
                     {
                         //This currently kills every process other than SpotifyWebHelper.exe
+                        System.Threading.Thread.Sleep(1000);
                         p.Kill();
                     }
                 }
@@ -228,8 +231,10 @@ namespace SpotifyPatcher
         //Do every patch
         private void DoEverythingButton_Click(object sender, EventArgs e)
         {
-            try {
-                foreach (Process p in Process.GetProcessesByName("Spotify")) {
+            try
+            {
+                foreach (Process p in Process.GetProcessesByName("Spotify"))
+                {
                     //This currently kills every process other than SpotifyWebHelper.exe
                     p.Kill();
                 }
@@ -237,7 +242,8 @@ namespace SpotifyPatcher
                 if (Process.GetProcessesByName("Spotify").Length < 2)
                     InstallSpotify(true);
                 else goto Start;
-            } catch { /*Do Nothing*/ }
+            }
+            catch { /*Do Nothing*/ }
         }
 
         private void UninstallSpotifyButton_Click(object sender, EventArgs e)
