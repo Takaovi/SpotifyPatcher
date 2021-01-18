@@ -27,7 +27,9 @@ Hopefully I will find the time to update SpotifyPatcher as Spotify continues to 
 
 # Uninstallation
 
-Simply click the "Uninstall Spotify" button, remove the program (SpotifyPatcher) and install Spotify again manually.
+[1] Click the "Uninstall Spotify" button on the program 
+[2] Remove the program itself (Whole folder)
+[3] CTRL + R, write regedit. Go to this address: HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run and remove "SpotifyStopUpdate".
 
 # Screenshots
 
