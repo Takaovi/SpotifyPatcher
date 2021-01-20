@@ -25,6 +25,8 @@ The whole program will be fully C# with no external files. (Or a few)
 Hopefully I will find the time to update SpotifyPatcher as Spotify continues to fight back the nonpaid adfree experience. 
 * This might require your support too. If you have a thing you'd like to be added or fixed tell me, or even pull request!
 
+Bypass Spotify auto-update
+
 # Uninstallation
 
 1. Click the "Uninstall Spotify" button on the program 
