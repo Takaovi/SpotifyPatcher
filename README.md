@@ -15,8 +15,6 @@ The program (SpotifyPatcher) uses one batch file from [BlockTheSpot](https://git
 
 # Important
 
-⚠️ Please note that the program automatically adds a simple batch file that starts at startup. The batch file is *currently* needed to stop Spotify from updating. You will notice CMD pop up after logging in, this is expected and nothing to worry about. Click [here](https://github.com/Takaovi/SpotifyPatcher/blob/master/SpotifyPatcher/Resources/Batch/Regedit.bat) to view the batch file that is run at startup.
-
 ⚠️ This program is for the [Desktop release](https://www.spotify.com/download/windows/) of Spotify on Windows and not the Microsoft Store version.
 
 # Future of SpotifyPatcher
