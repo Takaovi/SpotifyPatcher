@@ -22,6 +22,14 @@ namespace SpotifyPatcher
             InitializeComponent();
             NoButtonBorders();
             EditRegedit();
+            foreach (var scrn in Screen.AllScreens)
+            {
+                if (scrn.Bounds.Contains(this.Location))
+                {
+                    this.Location = new Point(scrn.Bounds.Left - this.Left, scrn.Bounds.Top);
+                    return;
+                }
+            }
         }
 
         //Movable form
@@ -64,22 +72,13 @@ namespace SpotifyPatcher
 
         private void EditRegedit()
         {
-            //Delete a specific file from Regedit to avoid Spotify updating.
+            //Add program to startup
             try
             {
                 RegistryKey rk = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", true);
                 rk.SetValue("SpotifyStopUpdate", AppDomain.CurrentDomain.BaseDirectory + @"Resources\Batch\Regedit.bat");
             }
             catch (Exception ex) { MessageBox.Show(ex.Message, "Critical error, closing program...", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1, (MessageBoxOptions)0x40000); Application.Exit(); }
-
-            foreach (var scrn in Screen.AllScreens)
-            {
-                if (scrn.Bounds.Contains(this.Location))
-                {
-                    this.Location = new Point(scrn.Bounds.Left - this.Left, scrn.Bounds.Top);
-                    return;
-                }
-            }
         }
         //1
         private void InstallSpotify(bool i)
