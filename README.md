@@ -38,7 +38,7 @@ Bypass Spotify auto-update
 # Screenshots
 
 <p align="center">
-  <img src="https://i.imgur.com/myVETxO.jpg">
+  <img src="https://i.imgur.com/OcBKN36.png">
 </p>
 
 # Legal
