@@ -84,7 +84,7 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="PatchedSpotify.lnk">
+    <None Include="Resources\Extra\PatchedSpotify.lnk">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Properties\Settings.settings">
@@ -140,7 +140,7 @@
     <None Include="Resources\Batch\Regedit.bat">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Batch\ShortCut.bat">
+    <None Include="Resources\Extra\ShortCut.bat">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Resources\Logo.png" />
