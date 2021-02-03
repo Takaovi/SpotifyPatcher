@@ -37,11 +37,9 @@
             this.Worker = new System.ComponentModel.BackgroundWorker();
             this.DragBar = new System.Windows.Forms.Panel();
             this.CloseButton = new System.Windows.Forms.Label();
+            this.GithubButton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.GithubButton = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.SecondWorker = new System.ComponentModel.BackgroundWorker();
             this.panel4 = new System.Windows.Forms.Panel();
             this.DragBar.SuspendLayout();
@@ -57,9 +55,9 @@
             this.PatchUpdateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PatchUpdateButton.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PatchUpdateButton.ForeColor = System.Drawing.Color.White;
-            this.PatchUpdateButton.Location = new System.Drawing.Point(9, 232);
+            this.PatchUpdateButton.Location = new System.Drawing.Point(610, 46);
             this.PatchUpdateButton.Name = "PatchUpdateButton";
-            this.PatchUpdateButton.Size = new System.Drawing.Size(201, 35);
+            this.PatchUpdateButton.Size = new System.Drawing.Size(124, 35);
             this.PatchUpdateButton.TabIndex = 0;
             this.PatchUpdateButton.TabStop = false;
             this.PatchUpdateButton.Text = "Disable update";
@@ -75,9 +73,9 @@
             this.InstallSpotifyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.InstallSpotifyButton.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InstallSpotifyButton.ForeColor = System.Drawing.Color.White;
-            this.InstallSpotifyButton.Location = new System.Drawing.Point(9, 109);
+            this.InstallSpotifyButton.Location = new System.Drawing.Point(220, 46);
             this.InstallSpotifyButton.Name = "InstallSpotifyButton";
-            this.InstallSpotifyButton.Size = new System.Drawing.Size(201, 35);
+            this.InstallSpotifyButton.Size = new System.Drawing.Size(124, 35);
             this.InstallSpotifyButton.TabIndex = 1;
             this.InstallSpotifyButton.TabStop = false;
             this.InstallSpotifyButton.Text = "Install old Spotify";
@@ -93,9 +91,9 @@
             this.PatchAdsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PatchAdsButton.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PatchAdsButton.ForeColor = System.Drawing.Color.White;
-            this.PatchAdsButton.Location = new System.Drawing.Point(9, 191);
+            this.PatchAdsButton.Location = new System.Drawing.Point(480, 46);
             this.PatchAdsButton.Name = "PatchAdsButton";
-            this.PatchAdsButton.Size = new System.Drawing.Size(201, 35);
+            this.PatchAdsButton.Size = new System.Drawing.Size(124, 35);
             this.PatchAdsButton.TabIndex = 2;
             this.PatchAdsButton.TabStop = false;
             this.PatchAdsButton.Text = "Disable ads";
@@ -111,8 +109,8 @@
             this.DoEverythingButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
             this.DoEverythingButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DoEverythingButton.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DoEverythingButton.ForeColor = System.Drawing.Color.White;
-            this.DoEverythingButton.Location = new System.Drawing.Point(9, 50);
+            this.DoEverythingButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(129)))), ((int)(((byte)(246)))));
+            this.DoEverythingButton.Location = new System.Drawing.Point(13, 46);
             this.DoEverythingButton.Name = "DoEverythingButton";
             this.DoEverythingButton.Size = new System.Drawing.Size(201, 35);
             this.DoEverythingButton.TabIndex = 3;
@@ -130,9 +128,9 @@
             this.UninstallSpotifyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.UninstallSpotifyButton.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UninstallSpotifyButton.ForeColor = System.Drawing.Color.White;
-            this.UninstallSpotifyButton.Location = new System.Drawing.Point(9, 150);
+            this.UninstallSpotifyButton.Location = new System.Drawing.Point(350, 46);
             this.UninstallSpotifyButton.Name = "UninstallSpotifyButton";
-            this.UninstallSpotifyButton.Size = new System.Drawing.Size(201, 35);
+            this.UninstallSpotifyButton.Size = new System.Drawing.Size(124, 35);
             this.UninstallSpotifyButton.TabIndex = 4;
             this.UninstallSpotifyButton.TabStop = false;
             this.UninstallSpotifyButton.Text = "Uninstall Spotify";
@@ -148,10 +146,11 @@
             // 
             this.DragBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
             this.DragBar.Controls.Add(this.CloseButton);
+            this.DragBar.Controls.Add(this.GithubButton);
             this.DragBar.Controls.Add(this.pictureBox1);
             this.DragBar.Location = new System.Drawing.Point(-5, -2);
             this.DragBar.Name = "DragBar";
-            this.DragBar.Size = new System.Drawing.Size(237, 38);
+            this.DragBar.Size = new System.Drawing.Size(759, 38);
             this.DragBar.TabIndex = 5;
             this.DragBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DragBar_MouseDown);
             // 
@@ -160,12 +159,30 @@
             this.CloseButton.AutoSize = true;
             this.CloseButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CloseButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(129)))), ((int)(((byte)(246)))));
-            this.CloseButton.Location = new System.Drawing.Point(195, 7);
+            this.CloseButton.Location = new System.Drawing.Point(723, 8);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.Size = new System.Drawing.Size(26, 25);
             this.CloseButton.TabIndex = 7;
             this.CloseButton.Text = "✕";
             this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
+            // 
+            // GithubButton
+            // 
+            this.GithubButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.GithubButton.FlatAppearance.BorderSize = 0;
+            this.GithubButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
+            this.GithubButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
+            this.GithubButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.GithubButton.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GithubButton.ForeColor = System.Drawing.Color.White;
+            this.GithubButton.Location = new System.Drawing.Point(659, 6);
+            this.GithubButton.Name = "GithubButton";
+            this.GithubButton.Size = new System.Drawing.Size(58, 27);
+            this.GithubButton.TabIndex = 8;
+            this.GithubButton.TabStop = false;
+            this.GithubButton.Text = "Github";
+            this.GithubButton.UseVisualStyleBackColor = false;
+            this.GithubButton.Click += new System.EventHandler(this.GithubButton_Click);
             // 
             // pictureBox1
             // 
@@ -173,7 +190,7 @@
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox1.ErrorImage = null;
             this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(7, 2);
+            this.pictureBox1.Location = new System.Drawing.Point(9, 2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(158, 35);
             this.pictureBox1.TabIndex = 6;
@@ -185,42 +202,8 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.panel1.Location = new System.Drawing.Point(-7, 29);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(239, 10);
+            this.panel1.Size = new System.Drawing.Size(763, 10);
             this.panel1.TabIndex = 6;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(129)))), ((int)(((byte)(246)))));
-            this.panel2.Location = new System.Drawing.Point(14, 277);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(191, 2);
-            this.panel2.TabIndex = 7;
-            // 
-            // GithubButton
-            // 
-            this.GithubButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.GithubButton.FlatAppearance.BorderSize = 0;
-            this.GithubButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.GithubButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
-            this.GithubButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.GithubButton.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GithubButton.ForeColor = System.Drawing.Color.White;
-            this.GithubButton.Location = new System.Drawing.Point(9, 289);
-            this.GithubButton.Name = "GithubButton";
-            this.GithubButton.Size = new System.Drawing.Size(201, 27);
-            this.GithubButton.TabIndex = 8;
-            this.GithubButton.TabStop = false;
-            this.GithubButton.Text = "Github";
-            this.GithubButton.UseVisualStyleBackColor = false;
-            this.GithubButton.Click += new System.EventHandler(this.GithubButton_Click);
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(129)))), ((int)(((byte)(246)))));
-            this.panel3.Location = new System.Drawing.Point(14, 96);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(191, 2);
-            this.panel3.TabIndex = 8;
             // 
             // SecondWorker
             // 
@@ -228,10 +211,11 @@
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.panel4.Location = new System.Drawing.Point(-11, 324);
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(129)))), ((int)(((byte)(246)))));
+            this.panel4.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.panel4.Location = new System.Drawing.Point(-3, 89);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(239, 10);
+            this.panel4.Size = new System.Drawing.Size(757, 10);
             this.panel4.TabIndex = 7;
             // 
             // Main
@@ -239,24 +223,22 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
-            this.ClientSize = new System.Drawing.Size(220, 328);
+            this.ClientSize = new System.Drawing.Size(747, 91);
+            this.Controls.Add(this.PatchUpdateButton);
             this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.GithubButton);
             this.Controls.Add(this.DragBar);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.UninstallSpotifyButton);
             this.Controls.Add(this.DoEverythingButton);
             this.Controls.Add(this.PatchAdsButton);
             this.Controls.Add(this.InstallSpotifyButton);
-            this.Controls.Add(this.PatchUpdateButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Form1";
             this.TopMost = true;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
             this.DragBar.ResumeLayout(false);
             this.DragBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -275,9 +257,7 @@
         private System.Windows.Forms.Panel DragBar;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button GithubButton;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label CloseButton;
         private System.ComponentModel.BackgroundWorker SecondWorker;
         private System.Windows.Forms.Panel panel4;
