@@ -20,7 +20,7 @@ The program (SpotifyPatcher) uses one batch file from [BlockTheSpot](https://git
 # Future of SpotifyPatcher
 
 The whole program will be fully C# with no external files. (Or a few)
-* This will most likely take the false positive away.
+* The reason this is not the case yet is because you can modify .bat files easily. Making own little changes to fix the patcher is easier for a wider userbase.
 
 Hopefully I will find the time to update SpotifyPatcher as Spotify continues to fight back the nonpaid adfree experience. 
 * This might require your support too. If you have a thing you'd like to be added or fixed tell me, or even pull request!
