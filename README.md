@@ -35,7 +35,7 @@ Bypass Spotify auto-update
 
 3. Go to Regedit HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run and remove "SpotifyStopUpdate"
 
-4. Go to c:\windows\system32\drivers\etc\hosts and remove everything
+4. Go to c:\windows\system32\drivers\etc\hosts and remove everything inside the hosts file
 
 # Screenshots
 
