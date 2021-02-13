@@ -49,6 +49,4 @@ None of the authors, contributors, or anyone else connected with this open sourc
 
 Under Section 107 of the Copyright Act 1976, allowance is made for "fair use" for purposes such as criticism, comment, news reporting, teaching, scholarship and research. Fair use is a use permitted by copyright statute that might otherwise be infringing. Non-profit, educational or personal use tips the balance in favor of fair use.
 
-We take claims of copyright infringement seriously. We will respond to notices of alleged copyright infringement that comply with applicable law. If you believe any materials accessible on or from this repository infringe your copyright, you may request removal of those materials (or access to them) from the repository by submitting a DMCA takedown notice to [Github](https://github.com/contact/dmca). We kindly ask you to be in touch with the repository's owner before submitting any DMCA takedown notices.
-
-If you don't agree with any of our disclaimers above please do not read the code or download anything from our repository as you have no permission to read and explore our repository till you agree.
+If you don't agree with any of our disclaimers above, do not read the code or download anything from our repository as you have no permission to read and explore our repository till you agree.
