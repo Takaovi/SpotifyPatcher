@@ -11,7 +11,7 @@ V1.1 | Working | 3.2.2021 | 0 | No | Yes
 
 SpotifyPatcher is a program made by Takaovi (Me). The program was not meant to be published, so expect some buggy code. 
 
-The program (SpotifyPatcher) uses one batch file from [BlockTheSpot](https://github.com/master131/BlockTheSpot) (Huge shoutout to them!) to bypass ads. It uses another batch file to bypass and patch auto-update. The rest of the program is done in C# and it basically stitches everything together. If your anti-virus detects the program as a virus you have nothing to worry about, it's just a false positive.
+The program (SpotifyPatcher) uses one batch file from [BlockTheSpot](https://github.com/master131/BlockTheSpot) (Huge shoutout to them!) and changes the hosts file to bypass ads. It uses another batch file to bypass and patch auto-update. The rest of the program is done in C# and it basically stitches everything together. If your anti-virus detects the program as a virus you have nothing to worry about, it's just a false positive.
 
 # Important
 
@@ -20,7 +20,7 @@ The program (SpotifyPatcher) uses one batch file from [BlockTheSpot](https://git
 # Future of SpotifyPatcher
 
 The whole program will be fully C# with no external files. (Or a few)
-* This will most likely take the false positive away.
+* The reason this is not the case yet is because you can modify .bat files easily. Making own little changes to fix the patcher is easier for a wider userbase.
 
 Hopefully I will find the time to update SpotifyPatcher as Spotify continues to fight back the nonpaid adfree experience. 
 * This might require your support too. If you have a thing you'd like to be added or fixed tell me, or even pull request!
@@ -33,12 +33,14 @@ Bypass Spotify auto-update
 
 2. Remove the program itself (Whole folder)
 
-3. Go to Regedit HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run and remove "SpotifyStopUpdate".
+3. Go to Regedit HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run and remove "SpotifyStopUpdate"
+
+4. Go to c:\windows\system32\drivers\etc\hosts and remove everything
 
 # Screenshots
 
 <p align="center">
-  <img src="https://i.imgur.com/myVETxO.jpg">
+  <img src="https://i.imgur.com/OcBKN36.png">
 </p>
 
 # Legal
