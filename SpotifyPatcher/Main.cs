@@ -247,19 +247,26 @@ namespace SpotifyPatcher
         // Do every patch
         void DoEverythingButton_Click(object sender, EventArgs e)
         {
-            try
+            if (!Directory.Exists(Application.StartupPath + @"\Resources"))
             {
-                foreach (Process p in Process.GetProcessesByName("Spotify"))
-                    // This currently kills every process other than SpotifyWebHelper.exe
-                    p.Kill();
-
-
-                Start:
-                if (Process.GetProcessesByName("Spotify").Length < 2)
-                    InstallSpotify(true);
-                else goto Start;
+                MessageBox.Show("You're missing the resources folder, the patcher can not continue.", "Critical error!", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1, (MessageBoxOptions)0x40000);
             }
-            catch { /*Do Nothing*/ }
+            else
+            {
+                try
+                {
+                    foreach (Process p in Process.GetProcessesByName("Spotify"))
+                        // This currently kills every process other than SpotifyWebHelper.exe
+                        p.Kill();
+
+
+                    Start:
+                    if (Process.GetProcessesByName("Spotify").Length < 2)
+                        InstallSpotify(true);
+                    else goto Start;
+                }
+                catch { /*Do Nothing*/ }
+            }
         }
 
         void UninstallSpotifyButton_Click(object sender, EventArgs e)
