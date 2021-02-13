@@ -9,7 +9,7 @@ V1.0.1 | Working | 3.2.2021 | 0 | No | Yes
 
 # About
 
-SpotifyPatcher is a program made by Takaovi (Me). The program was not meant to be published, so expect some buggy code. 
+SpotifyPatcher is a program made by Takaovi (Me). It was not meant to be published, so expect some buggy code. 
 
 The program (SpotifyPatcher) uses one batch file from [BlockTheSpot](https://github.com/master131/BlockTheSpot) (Huge shoutout to them!) and changes the hosts file to bypass ads. It uses another batch file to bypass and patch auto-update. The rest of the program is done in C# and it basically stitches everything together. If your anti-virus detects the program as a virus you have nothing to worry about, it's just a false positive.
 
