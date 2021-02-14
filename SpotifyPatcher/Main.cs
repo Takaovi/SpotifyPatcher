@@ -94,44 +94,26 @@ namespace SpotifyPatcher
         {
             if (Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Spotify"))
             {
-                // If user pressed patch all button
-                if (i)
-                {
-                    // Modify hosts file
-                    var proc = Process.Start(AppDomain.CurrentDomain.BaseDirectory + @"Resources\Batch\ModifyHosts.bat");
-                    proc.EnableRaisingEvents = true;
-                    proc.Exited += new EventHandler(proc_Exited);
-                    proc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                // Start NoAds batch file 
+                var p = Process.Start(AppDomain.CurrentDomain.BaseDirectory + @"Resources\Batch\NoAds.bat");
+                p.EnableRaisingEvents = true;
+                p.Exited += new EventHandler(p_Exited);
+                p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
 
-                    if (c)
-                    {
-                        Worker.CancelAsync();
-                    }
-                }
-                // If user pressed Disable ads button only
-                else if (!i)
+                if (c)
                 {
-                    // Modify hosts file
-                    var proc = Process.Start(AppDomain.CurrentDomain.BaseDirectory + @"Resources\Batch\ModifyHosts.bat");
-                    proc.EnableRaisingEvents = true;
-                    proc.Exited += new EventHandler(proc_Exited);
-                    proc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                    Worker.CancelAsync();
                 }
-                void proc_Exited(object sender, EventArgs e)
-                {
-                    var p = Process.Start(AppDomain.CurrentDomain.BaseDirectory + @"Resources\Batch\NoAds.bat");
-                    p.EnableRaisingEvents = true;
-                    p.Exited += new EventHandler(p_Exited);
-                    p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-                }
+
                 // Batch file exited
                 void p_Exited(object sender, EventArgs e)
                 {
+                    // If user wanted to patch all
                     if (i)
                     {
                         PatchUpdate(true);
                     }
-
+                    // If user simply used the patch ads button only
                     if (!i)
                     {
                         MessageBox.Show("If the patch is not working, please create a bug report to the Github page", "Patched successfully", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, (MessageBoxOptions)0x40000);
@@ -140,7 +122,7 @@ namespace SpotifyPatcher
             }
             else
             {
-                MessageBox.Show("Please make sure Spotify has been installed successfully", "Patch possibly failed", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, (MessageBoxOptions)0x40000);
+                MessageBox.Show("Please make sure Spotify has been installed successfully", "Patch failed", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, (MessageBoxOptions)0x40000);
             }
         }
 
@@ -159,23 +141,25 @@ namespace SpotifyPatcher
 
                 void proc_Exited(object sndr, EventArgs x)
                 {
+                    Process.Start(AppDomain.CurrentDomain.BaseDirectory + @"Resources\Batch\NoUpdates.bat");
+
                     Worker.CancelAsync();
-                    var p = Process.Start(AppDomain.CurrentDomain.BaseDirectory + @"Resources\Batch\NoUpdates.bat");
+                    var p = Process.Start(AppDomain.CurrentDomain.BaseDirectory + @"Resources\Batch\ModifyHosts.bat");
                     p.EnableRaisingEvents = true;
                     p.Exited += new EventHandler(p_Exited);
                     p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-                    p.Start();
 
                     // Batch file exited
                     void p_Exited(object sender, EventArgs e)
                     {
                         // If user wanted to patch all
+                        // Patch all is done, inform the user
                         if (i)
                         {
                             MessageBox.Show("To make sure it works, reboot your pc and check if you get ads. \n\nVisit my Github @Takaovi if you want to contribute or report bugs. \n\nSpotify will now automatically start after you close this window...", "Spotify Patch Success", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, (MessageBoxOptions)0x40000);
                             Process.Start(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Spotify\Spotify.exe");
                         }
-                        // If user simply used the patch update button
+                        // If user simply used the patch update button only
                         else if (!i)
                         {
                             MessageBox.Show("If the patch is not working, please create a bug report to the Github page.", "Patched successfully", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, (MessageBoxOptions)0x40000);
@@ -259,7 +243,6 @@ namespace SpotifyPatcher
                         // This currently kills every process other than SpotifyWebHelper.exe
                         p.Kill();
 
-
                     Start:
                     if (Process.GetProcessesByName("Spotify").Length < 2)
                         InstallSpotify(true);
@@ -282,16 +265,6 @@ namespace SpotifyPatcher
 
         void CloseButton_Click(object sender, EventArgs e)
         {
-            if (Worker.IsBusy)
-            {
-                Worker.CancelAsync();
-            }
-
-            if (SecondWorker.IsBusy)
-            {
-                SecondWorker.CancelAsync();
-            }
-
             Application.Exit();
         }
 
@@ -306,8 +279,6 @@ namespace SpotifyPatcher
             {
                 SecondWorker.CancelAsync();
             }
-
-            Application.Exit();
         }
     }
 }
