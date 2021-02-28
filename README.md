@@ -11,7 +11,7 @@ V1.0.1 | Working | 22.2.2021 | 0 | No | Yes
 
 SpotifyPatcher is a program made by Takaovi (Me). It was not meant to be published, so expect some buggy code. 
 
-The program (SpotifyPatcher) uses one batch file from [BlockTheSpot](https://github.com/master131/BlockTheSpot) to block ads. (Huge shoutout to them!). It uses some batch files to bypass and patch the auto-update. The rest of the program is done in C# and it basically just stitches everything together. If your anti-virus detects the program as a virus you have nothing to worry about, it's just a false positive.
+The program uses one batch file from [BlockTheSpot](https://github.com/master131/BlockTheSpot) and changes the Windows hosts to block ads. It uses some batch files to bypass and patch the auto-update. The rest of the program is done in C# and it basically just stitches everything together. If your anti-virus detects the program as a virus you have nothing to worry about, it's just a false positive.
 
 # Important
 
