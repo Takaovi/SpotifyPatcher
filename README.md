@@ -1,6 +1,4 @@
-<p align="center">
-<img src="https://i.imgur.com/gYdMVuO.png">
-</p>
+# SpotifyPatcher
 
 ### SpotifyPatcher bypasses Spotify's ads and auto-update on Windows.
 Version | Status | Status update date | Contributors | Project at risk
