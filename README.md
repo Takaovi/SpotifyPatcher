@@ -15,7 +15,8 @@ V1.0.1 | Working | 18.5.2021 | 0 | No | Yes
 
 2. Remove the program itself (Whole folder)
 
-3. Go to Regedit HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run and remove "SpotifyStopUpdate"
+3. Go to Regedit HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run and remove "SpotifyStopUpdate" 
+    * If it doesn't exist, continue to the next step...
 
 4. Go to c:\windows\system32\drivers\etc\hosts and remove everything inside the hosts file
 
