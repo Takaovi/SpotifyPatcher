@@ -5,25 +5,9 @@ Version | Status | Status update date | Contributors | Project at risk
 ------------ | ------------- | ------------- | ------------- | -------------
 V1.0.1 | Working | 18.5.2021 | 0 | No | Yes
 
-# About
-
-SpotifyPatcher is a program made by Takaovi (Me). It was not meant to be published, so expect some buggy code. 
-
-The program uses one batch file from [BlockTheSpot](https://github.com/master131/BlockTheSpot) to block ads. It uses some batch files to bypass and patch the auto-update. The rest of the program is done in C# and it basically just stitches everything together. If your anti-virus detects the program as a virus you have nothing to worry about, it's just a false positive.
-
 # Important
 
 ⚠️ This program is for the [Desktop release](https://www.spotify.com/download/windows/) of Spotify on Windows and not the Microsoft Store version.
-
-# Future of SpotifyPatcher (TODO)
-
-The whole program will be fully C# with no external files. (Or a few)
-* The reason this is not the case yet is because you can modify .bat files easily. Making own little changes to fix the patcher is easier for a wider userbase.
-
-Hopefully I will find the time to update SpotifyPatcher as Spotify continues to fight back the nonpaid adfree experience. 
-* This might require your support too. If you have a thing you'd like to be added or fixed tell me, or even pull request!
-
-Add "Uninstall Spotify Patcher" button
 
 # Uninstallation
 
