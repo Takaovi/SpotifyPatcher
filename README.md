@@ -20,12 +20,6 @@ V1.0.1 | Working | 18.5.2021 | 0 | No | Yes
 
 4. Go to c:\windows\system32\drivers\etc\hosts and remove everything inside the hosts file
 
-# Screenshots
-
-<p align="center">
-  <img src="https://i.imgur.com/OcBKN36.png">
-</p>
-
 # Legal
 
 None of the authors, contributors, or anyone else connected with this open source project, in any way whatsoever, can be responsible for your use of the information or the application contained in or linked from this repository.
