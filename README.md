@@ -1,5 +1,6 @@
 # SpotifyPatcher
 
+###### More simple version -> [ShutUpSpotify](https://github.com/Takaovi/ShutUpSpotify)
 ### SpotifyPatcher bypasses Spotify's ads and auto-update on Windows.
 Version | Status | Status update date | Contributors | Project at risk
 ------------ | ------------- | ------------- | ------------- | -------------
